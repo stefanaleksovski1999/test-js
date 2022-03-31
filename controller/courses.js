@@ -2,19 +2,11 @@ const Course = require('../models/course');
 const response = require('../lib/response_handler');
 
 
-/**
- * Authentication steps
- * 
- * 1. User registration
- *  - user enters basic information, email, password
- * 2. User login
- *  - if credentials (email and password) are valid, return valid JWT token
- *  - if not, return an error message
- */
 
 const getAll = async (req, res) => {
   const courses = await Course.find().populate('academy');
      
+  console.log()
   res.send({
     error: false,
     message: `All courses from the database`,
